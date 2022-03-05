@@ -1,0 +1,51 @@
+@media (max-width: 990px) {
+  .banner {
+    height: 546px;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    height: 369px;
+  }
+}
+@media (max-width: 576px) {
+  .banner {
+    height: 193px;
+  }
+}
+
+@media (max-width: 990px) {
+  .tavel-info p {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .tavel-info p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 990px) {
+  .journey {
+    display: none;
+  }
+}
+
+@media (max-width: 990px) {
+  .journey-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .container {
+    height: 90px;
+    flex-direction: column;
+  }
+  footer img {
+    position: static;
+  }
+  footer p {
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=rwd.css.map */

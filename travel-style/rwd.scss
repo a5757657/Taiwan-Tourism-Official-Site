@@ -1,0 +1,68 @@
+@mixin exlarge {
+  @media (max-width: 1140px) {
+    @content;
+  }
+}
+@mixin large {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+.banner {
+  @include large() {
+    height: 546px;
+  }
+  @include medium() {
+    height: 369px;
+  }
+  @include small() {
+    height: 193px;
+  }
+}
+
+.tavel-info {
+  p {
+    @include large() {
+      font-size: 24px;
+    }
+    @include medium() {
+      font-size: 16px;
+    }
+  }
+}
+.journey {
+  @include large() {
+    display: none;
+  }
+}
+.journey-mobile {
+  @include large() {
+    display: block;
+  }
+}
+
+footer {
+  @include medium() {
+    .container {
+      height: 90px;
+      flex-direction: column;
+    }
+    img {
+      position: static;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}

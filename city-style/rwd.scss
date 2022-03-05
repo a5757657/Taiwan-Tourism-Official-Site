@@ -1,0 +1,156 @@
+@mixin exlarge {
+  @media (max-width: 1140px) {
+    @content;
+  }
+}
+@mixin large {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@include large {
+  .weather-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .weather {
+      width: 80%;
+      .taipei {
+        h4 {
+          font-size: 30px !important;
+        }
+
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .txt {
+      padding: 28px 0;
+      width: 60%;
+    }
+  }
+}
+@include small {
+  .weather-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    .weather {
+      width: 90%;
+      flex-direction: column;
+      .taipei {
+        width: 100%;
+        padding: 20px 0;
+
+        .city {
+          display: none;
+        }
+        h4 {
+          font-size: 30px !important;
+        }
+        p {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      }
+      .img-wrap {
+        width: 100%;
+        img {
+          height: 150px;
+        }
+        .link {
+          display: none;
+        }
+      }
+    }
+
+    .txt {
+      padding: 28px 0;
+      width: 90%;
+    }
+  }
+}
+
+@include large() {
+  .attractions {
+    .left {
+      display: none;
+    }
+    .right {
+      width: 100% !important;
+      .item {
+        max-height: 300px;
+      }
+      .item1 {
+        display: block !important;
+      }
+    }
+  }
+}
+@include small() {
+  .michelin {
+    h3 {
+      font-weight: 500;
+      font-size: 20px;
+      text-align: center;
+    }
+    .row {
+      row-gap: 20px;
+    }
+    .card {
+      width: 100%;
+    }
+  }
+}
+
+.taipei-ex {
+  .mycard {
+    img {
+      @include large() {
+        margin-bottom: 20px;
+      }
+    }
+    p {
+      @include exlarge() {
+        font-size: 24px !important;
+      }
+      @include large() {
+        font-size: 20px !important;
+      }
+      @include medium() {
+        font-size: 16px !important;
+      }
+      @include small() {
+        font-size: 10px !important;
+      }
+    }
+  }
+}
+footer {
+  @include medium() {
+    .container {
+      height: 90px;
+      flex-direction: column;
+    }
+    img {
+      position: static;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}

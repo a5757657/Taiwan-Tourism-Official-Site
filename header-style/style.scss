@@ -1,0 +1,164 @@
+@mixin exlarge {
+  @media (max-width: 1140px) {
+    @content;
+  }
+}
+@mixin large {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+.header-wrap {
+  width: 100%;
+  height: 77px;
+  background-color: rgb(255, 255, 255);
+  header {
+    width: 100%;
+    height: 77px;
+    padding: 0 83px;
+  }
+  .right {
+    font-size: 20px;
+    line-height: 28px;
+    gap: 27px;
+    position: relative;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    transition: all 0.2s;
+  }
+  a.text:hover {
+    color: rgb(49, 187, 167);
+  }
+  a.text:hover::before {
+    width: 100%;
+  }
+  a.text::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(154, 154, 154);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.2s;
+  }
+  input {
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  //移除搜尋欄預設的x按鈕
+  input::-webkit-search-cancel-button {
+    display: none;
+  }
+  //移除focus時的樣式
+  input:focus {
+    outline: none;
+  }
+  //設定placeholder的樣式
+  input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    line-height: 24px;
+    transform: translateY(-1px);
+  }
+  a.search {
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    color: black;
+    top: -15px;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+.header-wrap-mobile {
+  display: none;
+  background-color: #fff;
+  z-index: 99;
+  header {
+    margin-bottom: 0 !important;
+    position: relative;
+    .menu {
+      display: none;
+      padding: 10px;
+      position: absolute;
+      right: 0px;
+      top: 70px;
+      background-color: white;
+      transition: all 0.2s;
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        transition: all 0.2s;
+        &:nth-child(2) {
+          margin-top: 20px;
+        }
+        a {
+          transition: all 0.2s;
+          color: black;
+          text-decoration: none;
+          font-size: 24px;
+          position: relative;
+          &:hover {
+            color: rgb(49, 187, 167);
+          }
+          &:hover::after{
+            width: 100%;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background-color: rgb(154, 154, 154);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.2s;
+          }
+        }
+      }
+    }
+    .ham {
+      cursor: pointer;
+    }
+  }
+}
+
+.header-wrap {
+  @include medium() {
+    display: none;
+  }
+}
+
+.header-wrap-mobile {
+  @include medium() {
+    display: block;
+    header {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@media (max-width: 990px) {
+  .banner {
+    height: 546px;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    height: 369px;
+  }
+}
+@media (max-width: 576px) {
+  .banner {
+    height: max-content;
+  }
+}
+
+@media (max-width: 768px) {
+  .covid-wrap h4 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .covid-wrap h4 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .covid-wrap p {
+    font-size: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .covid-wrap p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .travel-wrap .mycard .txt p {
+    font-size: 18px;
+  }
+  .travel-wrap .mycard .txt p::after {
+    width: 64px;
+    height: 26px;
+    left: calc(50% - 32px);
+    top: calc(50% - 12px);
+  }
+}
+@media (max-width: 1140px) {
+  .bottom {
+    justify-content: center;
+  }
+}
+@media (max-width: 1140px) {
+  .bottom .svg {
+    display: none !important;
+  }
+}
+@media (max-width: 1140px) {
+  .bottom .area {
+    padding: 0px !important;
+  }
+}
+@media (max-width: 990px) {
+  .bottom li {
+    width: 33% !important;
+  }
+}
+@media (max-width: 768px) {
+  .bottom li {
+    width: 50% !important;
+  }
+}
+@media (max-width: 576px) {
+  .bottom li {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 990px) {
+  .bottom ul {
+    padding: 0 100px !important;
+  }
+}
+@media (max-width: 768px) {
+  .bottom ul {
+    padding: 0 50px !important;
+    row-gap: 30px !important;
+  }
+}
+@media (max-width: 768px) {
+  .bottom a::before {
+    top: calc(50% - 4px);
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .event-wrap .mycard img {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 1140px) {
+  .event-wrap .mycard p {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 990px) {
+  .event-wrap .mycard p {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .event-wrap .mycard p {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 576px) {
+  .event-wrap .mycard p {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .container {
+    height: 90px;
+    flex-direction: column;
+  }
+  footer img {
+    position: static;
+  }
+  footer p {
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=rwd.css.map */

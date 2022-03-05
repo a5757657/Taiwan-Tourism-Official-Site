@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="ChunHan Chen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robot" content="index,follow" />
+    <meta name="rating" content="General /" />
+    <meta name="description" content="A description of the page" />
+    <title>Taiwan Tourism Official Site</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/real-search-style/style.css" />
+    <link rel="stylesheet" href="/real-search-style/rwd.css" />
+    <link rel="stylesheet" href="header-style/style.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header-wrap">
+      <div class="container">
+        <header class="d-flex justify-content-between align-items-center">
+          <div class="logo">
+            <a href="index.html">
+              <img src="/img/Logo31.svg" alt="" />
+            </a>
+          </div>
+          <div class="right d-flex align-items-center justify-content-center">
+            <a href="#" class="mb-0 text">到哪裡去</a>
+            <a href="#" class="mb-0 text">想做什麼</a>
+            <!-- <input type="text" name="" id="" placeholder="輸入關鍵字" />
+            <a class="search" href="#"><img src="/img/search.svg" alt="" /></a> -->
+          </div>
+        </header>
+      </div>
+    </div>
+    <!-- Header Mobile -->
+    <div class="header-wrap-mobile">
+      <div class="container">
+        <header
+          class="d-flex justify-content-between align-items-center px-4 mb-2"
+        >
+          <div class="menu">
+            <ul>
+              <li><a href="real-search.html">到哪裡去</a></li>
+              <li><a href="real-search.html">想做什麼</a></li>
+            </ul>
+          </div>
+          <div class="logo">
+            <a href="index.html">
+              <img src="/img/Logo31.svg" alt="" />
+            </a>
+          </div>
+          <div class="ham">
+            <img src="/img/menu.svg" alt="" />
+          </div>
+          <!--  <div class="right d-flex align-items-center justify-content-center">
+            <a class="search" href="search.html"
+              ><img src="/img/search.svg" alt=""
+            /></a>
+          </div> -->
+        </header>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <div class="container">
+        <div class="result">
+          <div class="form-row">
+            <select name="area" id="area">
+              <option value="0">北部</option>
+              <option value="1">中部</option>
+              <option value="2">南部</option>
+              <option value="3">東部</option>
+              <option value="4">外島</option>
+            </select>
+            <select name="city" id="city">
+              <option value="臺北市">臺北市</option>
+              <option value="新北市">新北市</option>
+              <option value="基隆市">基隆市</option>
+              <option value="新竹市">新竹市</option>
+              <option value="桃園市">桃園市</option>
+              <option value="新竹縣">新竹縣</option>
+              <option value="宜蘭縣">宜蘭縣</option>
+            </select>
+          </div>
+          <div class="group">
+            <a href="#">景點</a>
+            <a href="#">餐飲</a>
+            <a href="#">住宿</a>
+          </div>
+        </div>
+        <div class="but">
+          <input
+            type="search"
+            name=""
+            id="searchText"
+            placeholder="請輸入關鍵字"
+            onkeypress="handle()"
+          />
+          <button class="gosearch">送出</button>
+        </div>
+      </div>
+    </div>
+    <div class="container py-3 insertpost">
+      <!--       <div class="post">
+        <img src="img/image 5.png" alt="" />
+        <div class="info">
+          <div class="txt">
+            <h4>桌藏</h4>
+            <p>
+              入口處流水潺潺，小徑上鋪滿古董瓦片，進入這所有八十年歷史的日式建築，木製橫樑和懸垂燈飾營造出新舊對比強烈的特別氛圍。廚師以大量在地食材將臺式元素糅合法式料理中，拼湊出味道、口感皆非比尋常的菜色。午餐和晚餐分別提供五或七道菜的套餐，服務團隊默契十足。
+            </p>
+          </div>
+          <div class="loca">
+            <i class="fas fa-map-marker-alt"></i>
+            大安區和平東路二段76巷23弄9號, Taipei, 106, 臺北／臺中
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+    <footer>
+      <div class="container">
+        <img src="img/Logowhite.svg" alt="" />
+        <p>© Taiwan Tourism Association All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img src="img/image 5.png" alt="" />
+            <div class="info">
+              <div class="txt">
+                <h4>桌藏</h4>
+                <p>
+                  入口處流水潺潺，小徑上鋪滿古董瓦片，進入這所有八十年歷史的日式建築，木製橫樑和懸垂燈飾營造出新舊對比強烈的特別氛圍。廚師以大量在地食材將臺式元素糅合法式料理中，拼湊出味道、口感皆非比尋常的菜色。午餐和晚餐分別提供五或七道菜的套餐，服務團隊默契十足。
+                </p>
+              </div>
+              <div class="loca">
+                <i class="fas fa-map-marker-alt"></i>
+                大安區和平東路二段76巷23弄9號, Taipei, 106, 臺北／臺中
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"
+      integrity="sha512-mvfoZwdzM8yPhlNxN1lU8S5wcfC5aPRCD3W0jsOeA+D75MMCrycxQqIvt6K7c5P7jItn7AXiAreuR+eockUHwQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="/header-style/header.js"></script>
+    <script>
+      // API key
+      function getAuthorizationHeader() {
+        let AppID = "dc25b47e35d44cf6b44fab824928d5b0";
+        let AppKey = "HOz6BvA7WvTiaSUw_NE_IjdC7a8";
+        let GMTString = new Date().toGMTString();
+        let ShaObj = new jsSHA("SHA-1", "TEXT");
+        ShaObj.setHMACKey(AppKey, "TEXT");
+        ShaObj.update("x-date: " + GMTString);
+        let HMAC = ShaObj.getHMAC("B64");
+        let Authorization =
+          'hmac username="' +
+          AppID +
+          '", algorithm="hmac-sha1", headers="x-date", signature="' +
+          HMAC +
+          '"';
+        return { Authorization: Authorization, "X-Date": GMTString };
+      }
+
+      const modal = new bootstrap.Modal(
+        document.querySelector("#exampleModal")
+      );
+
+      let districtArray = [
+        ["臺北市", "新北市", "基隆市", "新竹市", "桃園市", "新竹縣", "宜蘭縣"],
+        ["臺中市", "苗栗縣", "彰化縣", "南投縣", "雲林縣"],
+        ["高雄市", "臺南市", "嘉義市", "嘉義縣", "屏東縣", "澎湖縣"],
+        ["花蓮縣", "臺東縣"],
+        ["金門縣", "連江縣"],
+      ];
+      let data = [];
+      let str = "";
+      let count = 0;
+      let app = "ScenicSpot";
+      let city = "Taipei";
+      let keyword = "";
+      let insertpost = document.querySelector(".insertpost");
+      let searchText = document.querySelector("#searchText");
+
+      //送出按鈕的效果
+      $(".gosearch").mousedown(function () {
+        $(this).css("transform", "scale(0.95)");
+      });
+      $(".gosearch").mouseup(function () {
+        $(this).css("transform", "scale(1)");
+      });
+
+      /* 下拉選單的部分 */
+      $("#area").change(function () {
+        $("#city").text("");
+        let length = districtArray[$(this).val()].length;
+        let str = "";
+        for (i = 0; i < length; i++) {
+          str += `<option value="${districtArray[$(this).val()][i]}">${
+            districtArray[$(this).val()][i]
+          }</option>`;
+        }
+        $("#city").html(str);
+      });
+
+      /* 按鈕變色 */
+      $(".group")
+        .children()
+        .click(function () {
+          $(this)
+            .css({ background: "#009e96", color: "white" })
+            .siblings()
+            .css({ background: "#fff", color: "black" });
+          if ($(this).text() == "景點") {
+            app = "ScenicSpot";
+          } else if ($(this).text() == "餐飲") {
+            app = "Restaurant";
+          } else {
+            app = "Hotel";
+          }
+        });
+
+      function enter() {
+        /* 北部 */
+        if ($("#city").val() == "臺北市") city = "Taipei";
+        if ($("#city").val() == "新北市") city = "NewTaipei";
+        if ($("#city").val() == "基隆市") city = "Keelung";
+        if ($("#city").val() == "新竹市") city = "Hsinchu";
+        if ($("#city").val() == "桃園市") city = "Taoyuan";
+        if ($("#city").val() == "新竹縣") city = "HsinchuCounty";
+        if ($("#city").val() == "宜蘭縣") city = "YilanCounty";
+
+        /* 中部 */
+        if ($("#city").val() == "臺中市") city = "Taichung";
+        if ($("#city").val() == "苗栗縣") city = "MiaoliCounty";
+        if ($("#city").val() == "彰化縣") city = "ChanghuaCounty";
+        if ($("#city").val() == "南投縣") city = "NantouCounty";
+        if ($("#city").val() == "雲林縣") city = "YunlinCounty";
+
+        /* 南部 */
+        if ($("#city").val() == "高雄市") city = "Kaohsiung";
+        if ($("#city").val() == "臺南市") city = "Tainan";
+        if ($("#city").val() == "嘉義市") city = "Chiayi";
+        if ($("#city").val() == "嘉義縣") city = "ChiayiCounty";
+        if ($("#city").val() == "屏東縣") city = "PingtungCounty";
+        if ($("#city").val() == "澎湖縣") city = "PenghuCounty";
+
+        /* 東部 */
+        if ($("#city").val() == "花蓮縣") city = "HualienCounty";
+        if ($("#city").val() == "臺東縣") city = "TaitungCounty";
+
+        /* 外島 */
+        if ($("#city").val() == "金門縣") city = "KinmenCounty";
+        if ($("#city").val() == "連江縣") city = "LienchiangCounty";
+
+        insertpost.innerHTML = "";
+        count = 0;
+
+        keyword = searchText.value;
+
+        if (app == "ScenicSpot") {
+          getScenicSpot();
+        } else if (app == "Restaurant") {
+          getRestaurant();
+        } else if (app == "Hotel") {
+          getHotel();
+        } else {
+          //console.log("error");
+        }
+      }
+      /* 送出的按鈕 */
+      $(".gosearch").click(function () {
+        /* 北部 */
+        if ($("#city").val() == "臺北市") city = "Taipei";
+        if ($("#city").val() == "新北市") city = "NewTaipei";
+        if ($("#city").val() == "基隆市") city = "Keelung";
+        if ($("#city").val() == "新竹市") city = "Hsinchu";
+        if ($("#city").val() == "桃園市") city = "Taoyuan";
+        if ($("#city").val() == "新竹縣") city = "HsinchuCounty";
+        if ($("#city").val() == "宜蘭縣") city = "YilanCounty";
+
+        /* 中部 */
+        if ($("#city").val() == "臺中市") city = "Taichung";
+        if ($("#city").val() == "苗栗縣") city = "MiaoliCounty";
+        if ($("#city").val() == "彰化縣") city = "ChanghuaCounty";
+        if ($("#city").val() == "南投縣") city = "NantouCounty";
+        if ($("#city").val() == "雲林縣") city = "YunlinCounty";
+
+        /* 南部 */
+        if ($("#city").val() == "高雄市") city = "Kaohsiung";
+        if ($("#city").val() == "臺南市") city = "Tainan";
+        if ($("#city").val() == "嘉義市") city = "Chiayi";
+        if ($("#city").val() == "嘉義縣") city = "ChiayiCounty";
+        if ($("#city").val() == "屏東縣") city = "PingtungCounty";
+        if ($("#city").val() == "澎湖縣") city = "PenghuCounty";
+
+        /* 東部 */
+        if ($("#city").val() == "花蓮縣") city = "HualienCounty";
+        if ($("#city").val() == "臺東縣") city = "TaitungCounty";
+
+        /* 外島 */
+        if ($("#city").val() == "金門縣") city = "KinmenCounty";
+        if ($("#city").val() == "連江縣") city = "LienchiangCounty";
+
+        insertpost.innerHTML = "";
+        count = 0;
+
+        keyword = searchText.value;
+
+        if (app == "ScenicSpot") {
+          getScenicSpot();
+        } else if (app == "Restaurant") {
+          getRestaurant();
+        } else if (app == "Hotel") {
+          getHotel();
+        } else {
+          //console.log("error");
+        }
+      });
+
+      /* enter查詢 */
+      function handle() {
+        switch (
+          event.keyCode //抓到鍵盤的keycode
+        ) {
+          case 13: //符合此keycode才會執行以下判斷式
+            if (focus) {
+              console.log("enter");
+              enter();
+            }
+        }
+      }
+      /* 無限滾動 */
+      window.addEventListener("scroll", () => {
+        if (
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 500
+        ) {
+          if (app == "ScenicSpot") {
+            getScenicSpot();
+          } else if (app == "Restaurant") {
+            getRestaurant();
+          } else if (app == "Hotel") {
+            getHotel();
+          }
+        }
+      });
+      /* --------------住宿-------------- */
+      async function getHotel() {
+        let url = `https://ptx.transportdata.tw/MOTC/v2/Tourism/${app}/${city}?%24filter=contains(HotelName, '${keyword}')&%format=JSON/`;
+
+        try {
+          const res = await fetch(url, {
+            headers: getAuthorizationHeader(),
+          });
+          data = await res.json();
+          if (data.length === 0) {
+            noresult();
+          } else {
+            Hotel_data();
+          }
+        } catch (err) {
+          //console.log(err);
+        }
+      }
+      function Hotel_data() {
+        for (let i = 0; i < 10; i++) {
+          let detail = data[count].Description ? data[count].Description : "";
+          let random = Math.floor(Math.random() * 1000);
+          data[count].Phone = data[count].Phone
+            ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+              '<i class="fas fa-phone-alt"></i>' +
+              "&nbsp;" +
+              data[count].Phone
+            : "";
+
+          insertpost.innerHTML += `<div class="post">
+          <img src=${
+            data[count].Picture.PictureUrl1
+              ? data[count].Picture.PictureUrl1
+              : "./img/no-image.jpg"
+          } alt="" />
+          <div class="info">
+            <div class="txt">
+              <h4>${data[count].HotelName}</h4>
+              <p>
+                ${detail}
+              </p>
+            </div>
+            <div class="loca">
+              <i class="fas fa-map-marker-alt"></i>
+              ${data[count].Address}${data[count].Phone}
+            </div>
+          </div>`;
+          count++;
+        }
+        $(".post").on("click", function () {
+          let body = $(this).html();
+
+          $(".modal-body").html(body);
+
+          modal.show();
+        });
+      }
+
+      /* --------------餐廳-------------- */
+      /* https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/Taipei?%24filter=contains(ScenicSpotName, '大稻埕')&%24format=JSON  */
+      async function getRestaurant() {
+        let url = `https://ptx.transportdata.tw/MOTC/v2/Tourism/${app}/${city}?%24filter=contains(RestaurantName, '${keyword}')&%format=JSON/`;
+
+        try {
+          const res = await fetch(url, {
+            headers: getAuthorizationHeader(),
+          });
+          data = await res.json();
+
+          if (data.length === 0) {
+            noresult();
+          } else {
+            Restaurant_data();
+          }
+        } catch (err) {
+          //console.log(err);
+        }
+      }
+      function Restaurant_data() {
+        for (let i = 0; i < 10; i++) {
+          let random = Math.floor(Math.random() * 1000);
+          if (data[count].Phone === undefined) {
+            data[count].Phone = "";
+          } else {
+            data[count].Phone =
+              '<i class="fas fa-phone-alt"></i>' + "&nbsp" + data[count].Phone;
+          }
+
+          insertpost.innerHTML += `<div class="post">
+          <img src=${
+            data[count].Picture.PictureUrl1
+              ? data[count].Picture.PictureUrl1
+              : "./img/no-image.jpg"
+          } alt="" />
+          <div class="info">
+            <div class="txt">
+              <h4>${data[count].RestaurantName}</h4>
+              <p>
+                ${data[count].Description}
+              </p>
+            </div>
+            <div class="loca">
+              <i class="fas fa-map-marker-alt"></i>
+              ${data[count].Address}${
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + data[count].Phone
+          }
+            </div>
+          </div>`;
+          count++;
+          document
+            .querySelector(".post")
+            .addEventListener("click", function () {
+              let body = $(this).html();
+
+              $(".modal-body").html(body);
+
+              modal.show();
+            });
+        }
+        $(".post").click(function () {
+          let body = $(this).html();
+
+          $(".modal-body").html(body);
+
+          modal.show();
+        });
+      }
+      /* --------------景點-------------- */
+
+      async function getScenicSpot() {
+        let url = `https://ptx.transportdata.tw/MOTC/v2/Tourism/${app}/${city}?%24filter=contains(ScenicSpotName, '${keyword}')&%24format=JSON/`;
+        //let url = `https://ptx.transportdata.tw/MOTC/v2/Tourism/${app}/${city}?%24format=JSON`;
+
+        try {
+          const res = await fetch(url, {
+            headers: getAuthorizationHeader(),
+          });
+          data = await res.json();
+
+          if (data.length === 0) {
+            noresult();
+          } else {
+            ScenicSpot_data();
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      function ScenicSpot_data() {
+        for (let i = 0; i < 10; i++) {
+          //class在api裡有可能是undefined 所以用判斷式排除
+          let class1 = data[count].Class1 ? "-" + data[count].Class1 : "";
+          let class2 = data[count].Class2 ? "-" + data[count].Class2 : "";
+          let Level = data[count].Level ? "-" + data[count].Level : "";
+          let random = Math.floor(Math.random() * 1000);
+
+          /* if (class1 === undefined) {
+            class1 = "";
+          } else {
+            class1 = "-" + class1;
+          }
+          if (class2 === undefined) {
+            class2 = "";
+          } else {
+            class2 = "-" + class2;
+          } */
+
+          insertpost.innerHTML += `<div class="post">
+          <img src=${
+            data[count].Picture.PictureUrl1
+              ? data[count].Picture.PictureUrl1
+              : "./img/no-image.jpg"
+          } alt="" />
+          <div class="info">
+            <div class="txt">
+              <h4>${data[count].ScenicSpotName}</h4>
+              <p>
+                ${data[count].DescriptionDetail}
+              </p>
+            </div>
+            <div class="loca">
+              <i class="fas fa-map-marker-alt"></i>
+              ${data[count].City}${class1}${class2}${Level}
+            </div>
+          </div>`;
+          count++;
+        }
+        $(".post").on("click", function () {
+          let body = $(this).html();
+
+          $(".modal-body").html(body);
+
+          modal.show();
+        });
+      }
+
+      function noresult() {
+        insertpost.innerHTML =
+          '<h3 class="text-center my-5">"查無搜尋結果"</h3>';
+      }
+
+      getScenicSpot();
+    </script>
+  </body>
+</html>

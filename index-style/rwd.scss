@@ -1,0 +1,149 @@
+@mixin exlarge {
+  @media (max-width: 1140px) {
+    @content;
+  }
+}
+@mixin large {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+@mixin medium {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+.banner {
+  @include large() {
+    height: 546px;
+  }
+  @include medium() {
+    height: 369px;
+  }
+  @include small() {
+    height:max-content;
+  }
+}
+
+.covid-wrap {
+  h4 {
+    @include medium() {
+      font-size: 24px;
+    }
+    @include small() {
+      font-size: 20px;
+    }
+  }
+  p {
+    @include medium() {
+      font-size: 20px;
+    }
+    @include small() {
+      font-size: 14px;
+    }
+  }
+}
+
+@include medium() {
+  .travel-wrap {
+    .mycard {
+      .txt p {
+        font-size: 18px;
+      }
+      .txt p::after{
+        width: 64px;
+        height: 26px;
+        left: calc(50% - 32px);
+        top: calc(50% - 12px);
+      }
+    }
+  }
+}
+
+.bottom {
+  @include exlarge() {
+    justify-content: center;
+  }
+  .svg {
+    @include exlarge() {
+      display: none !important;
+    }
+  }
+  .area {
+    @include exlarge() {
+      padding: 0px !important;
+    }
+  }
+  li {
+    @include large() {
+      width: 33% !important;
+    }
+    @include medium() {
+      width: 50% !important;
+    }
+    @include small() {
+      font-size: 16px !important;
+    }
+  }
+  ul {
+    @include large() {
+      padding: 0 100px !important;
+    }
+    @include medium() {
+      padding: 0 50px !important;
+      row-gap: 30px !important;
+    }
+  }
+  a::before {
+    @include medium() {
+      top: calc(50% - 8px / 2);
+      width: 12px !important;
+      height: 12px !important;
+    }
+  }
+}
+
+.event-wrap {
+  .mycard {
+    img {
+      @include large() {
+        margin-bottom: 20px;
+      }
+    }
+    p {
+      @include exlarge() {
+        font-size: 24px !important;
+      }
+      @include large() {
+        font-size: 20px !important;
+      }
+      @include medium() {
+        font-size: 16px !important;
+      }
+      @include small() {
+        font-size: 10px !important;
+      }
+    }
+  }
+}
+
+footer {
+  @include medium() {
+    .container {
+      height: 90px;
+      flex-direction: column;
+    }
+    img {
+      position: static;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+}

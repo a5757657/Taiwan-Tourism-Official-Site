@@ -1,0 +1,124 @@
+@media (max-width: 990px) {
+  .weather-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .weather-wrap .weather {
+    width: 80%;
+  }
+  .weather-wrap .weather .taipei h4 {
+    font-size: 30px !important;
+  }
+  .weather-wrap .weather .taipei p {
+    font-size: 18px;
+  }
+  .weather-wrap .txt {
+    padding: 28px 0;
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
+  .weather-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+  .weather-wrap .weather {
+    width: 90%;
+    flex-direction: column;
+  }
+  .weather-wrap .weather .taipei {
+    width: 100%;
+    padding: 20px 0;
+  }
+  .weather-wrap .weather .taipei .city {
+    display: none;
+  }
+  .weather-wrap .weather .taipei h4 {
+    font-size: 30px !important;
+  }
+  .weather-wrap .weather .taipei p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .weather-wrap .weather .img-wrap {
+    width: 100%;
+  }
+  .weather-wrap .weather .img-wrap img {
+    height: 150px;
+  }
+  .weather-wrap .weather .img-wrap .link {
+    display: none;
+  }
+  .weather-wrap .txt {
+    padding: 28px 0;
+    width: 90%;
+  }
+}
+@media (max-width: 990px) {
+  .attractions .left {
+    display: none;
+  }
+  .attractions .right {
+    width: 100% !important;
+  }
+  .attractions .right .item {
+    max-height: 300px;
+  }
+  .attractions .right .item1 {
+    display: block !important;
+  }
+}
+@media (max-width: 576px) {
+  .michelin h3 {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+  }
+  .michelin .row {
+    row-gap: 20px;
+  }
+  .michelin .card {
+    width: 100%;
+  }
+}
+@media (max-width: 990px) {
+  .taipei-ex .mycard img {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 1140px) {
+  .taipei-ex .mycard p {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 990px) {
+  .taipei-ex .mycard p {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .taipei-ex .mycard p {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 576px) {
+  .taipei-ex .mycard p {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .container {
+    height: 90px;
+    flex-direction: column;
+  }
+  footer img {
+    position: static;
+  }
+  footer p {
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=rwd.css.map */

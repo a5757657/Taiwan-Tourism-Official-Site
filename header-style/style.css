@@ -1,0 +1,138 @@
+.header-wrap {
+  width: 100%;
+  height: 77px;
+  background-color: white;
+}
+.header-wrap header {
+  width: 100%;
+  height: 77px;
+  padding: 0 83px;
+}
+.header-wrap .right {
+  font-size: 20px;
+  line-height: 28px;
+  gap: 27px;
+  position: relative;
+}
+.header-wrap a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  transition: all 0.2s;
+}
+.header-wrap a.text:hover {
+  color: #31bba7;
+}
+.header-wrap a.text:hover::before {
+  width: 100%;
+}
+.header-wrap a.text::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #9a9a9a;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s;
+}
+.header-wrap input {
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.header-wrap input::-webkit-search-cancel-button {
+  display: none;
+}
+.header-wrap input:focus {
+  outline: none;
+}
+.header-wrap input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  line-height: 24px;
+  transform: translateY(-1px);
+}
+.header-wrap a.search {
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  color: black;
+  top: -15px;
+  right: 0;
+  z-index: 99;
+}
+
+.header-wrap-mobile {
+  display: none;
+  background-color: #fff;
+  z-index: 99;
+}
+.header-wrap-mobile header {
+  margin-bottom: 0 !important;
+  position: relative;
+}
+.header-wrap-mobile header .menu {
+  display: none;
+  padding: 10px;
+  position: absolute;
+  right: 0px;
+  top: 70px;
+  background-color: white;
+  transition: all 0.2s;
+}
+.header-wrap-mobile header .menu ul {
+  margin: 0;
+  padding: 0;
+}
+.header-wrap-mobile header .menu li {
+  list-style: none;
+  transition: all 0.2s;
+}
+.header-wrap-mobile header .menu li:nth-child(2) {
+  margin-top: 20px;
+}
+.header-wrap-mobile header .menu li a {
+  transition: all 0.2s;
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  position: relative;
+}
+.header-wrap-mobile header .menu li a:hover {
+  color: #31bba7;
+}
+.header-wrap-mobile header .menu li a:hover::after {
+  width: 100%;
+}
+.header-wrap-mobile header .menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #9a9a9a;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s;
+}
+.header-wrap-mobile header .ham {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-wrap-mobile {
+    display: block;
+  }
+  .header-wrap-mobile header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
