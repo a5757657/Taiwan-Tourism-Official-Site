@@ -38,12 +38,12 @@
         <header
           class="d-flex justify-content-between align-items-center px-4 mb-2"
         >
-        <div class="menu">
-          <ul>
-            <li><a href="real-search.html">到哪裡去</a></li>
-            <li><a href="real-search.html">想做什麼</a></li>
-          </ul>
-        </div>
+          <div class="menu">
+            <ul>
+              <li><a href="real-search.html">到哪裡去</a></li>
+              <li><a href="real-search.html">想做什麼</a></li>
+            </ul>
+          </div>
           <div class="logo">
             <a href="index.html">
               <img src="/img/Logo31.svg" alt="" />
@@ -176,8 +176,8 @@
         <div class="text">
           <h3>台北特色體驗</h3>
         </div>
-        <div class="mycard d-flex row justify-content-between">
-          <div class="item col text-center">
+        <div class="mycard d-flex row justify-content-between activity">
+          <!-- <div class="item col text-center">
             <a href="">
               <img src="img/Rectangle 14.png" alt="" />
               <p>2021臺北客家義民嘉年華</p>
@@ -194,7 +194,7 @@
               <img src="img/Rectangle 14-2.png" alt="" />
               <p>「萬華聲音印象」特展</p>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -209,7 +209,71 @@
     <script src="/jquery.js"></script>
 
     <script src="/header-style/header.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"
+      integrity="sha512-mvfoZwdzM8yPhlNxN1lU8S5wcfC5aPRCD3W0jsOeA+D75MMCrycxQqIvt6K7c5P7jItn7AXiAreuR+eockUHwQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
+      // API key
+      function getAuthorizationHeader() {
+        let AppID = "dc25b47e35d44cf6b44fab824928d5b0";
+        let AppKey = "HOz6BvA7WvTiaSUw_NE_IjdC7a8";
+        let GMTString = new Date().toGMTString();
+        let ShaObj = new jsSHA("SHA-1", "TEXT");
+        ShaObj.setHMACKey(AppKey, "TEXT");
+        ShaObj.update("x-date: " + GMTString);
+        let HMAC = ShaObj.getHMAC("B64");
+        let Authorization =
+          'hmac username="' +
+          AppID +
+          '", algorithm="hmac-sha1", headers="x-date", signature="' +
+          HMAC +
+          '"';
+        return { Authorization: Authorization, "X-Date": GMTString };
+      }
+      let activity = document.querySelector('.activity')
+
+      async function getActivity() {
+        let url =
+          "https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity/Taipei?%24top=30&%24format=JSON";
+        //let url = `https://ptx.transportdata.tw/MOTC/v2/Tourism/${app}/${city}?%24format=JSON`;
+
+        try {
+          const res = await fetch(url, {
+            headers: getAuthorizationHeader(),
+          });
+          data = await res.json();
+          console.log(data);
+
+          if (data.length === 0) {
+            noresult();
+          } else {
+            activity_data();
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      function activity_data() {
+        let newData = data.sort(() => Math.random() - 0.5);
+
+        for (let i = 0; i < 3; i++) {
+
+          activity.innerHTML += `<div class="item col text-center">
+            <a href="/#">
+              <img src=${
+                newData[i].Picture.PictureUrl1
+                  ? newData[i].Picture.PictureUrl1
+                  : "./img/no-image.jpg"
+              } alt="" />
+              <p>${newData[i].ActivityName}</p>
+            </a>
+          </div>`;
+        }
+      }
+
       let taipei = document.querySelector(".taipei");
       let data = [];
       let date = new Date();
@@ -250,6 +314,7 @@
       }
 
       getdata();
+      getActivity()
     </script>
   </body>
 </html>

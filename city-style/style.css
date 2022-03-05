@@ -255,24 +255,29 @@
   font-weight: 500;
   margin-bottom: 41px;
 }
-.taipei-ex .mycard a {
+.taipei-ex .mycard .item {
+  width: 400px;
+  height: 300px;
+}
+.taipei-ex .mycard .item a {
   width: 300px;
   text-decoration: none;
   overflow: hidden;
 }
-.taipei-ex .mycard img {
+.taipei-ex .mycard .item img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   transform: scale(1);
   transition: all 0.3s;
 }
-.taipei-ex .mycard p {
-  font-size: 32px;
+.taipei-ex .mycard .item p {
+  font-size: 28px;
   color: #000;
 }
-.taipei-ex .mycard a:hover > img {
+.taipei-ex .mycard .item a:hover > img {
   transform: scale(1.03);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
