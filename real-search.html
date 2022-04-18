@@ -234,6 +234,11 @@
           }</option>`;
         }
         $("#city").html(str);
+        enter();
+      });
+
+      $("#city").change(function () {
+        enter();
       });
 
       /* 按鈕變色 */
@@ -246,10 +251,13 @@
             .css({ background: "#fff", color: "black" });
           if ($(this).text() == "景點") {
             app = "ScenicSpot";
+            enter();
           } else if ($(this).text() == "餐飲") {
             app = "Restaurant";
+            enter();
           } else {
             app = "Hotel";
+            enter();
           }
         });
 
@@ -363,6 +371,7 @@
             }
         }
       }
+
       /* 無限滾動 */
       window.addEventListener("scroll", () => {
         if (
