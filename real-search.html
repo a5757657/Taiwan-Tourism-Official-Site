@@ -177,10 +177,42 @@
 
     <script src="header-style/header.js"></script>
     <script>
+      let token = ''
+
+    $(function () {
+        GetAuthorizationHeader();    
+    });
+
+    function GetAuthorizationHeader() {    
+        const parameter = {
+            grant_type:"client_credentials",
+            client_id: "lililklk1102-996c6644-cd69-40d3",
+            client_secret: "7051148b-c24c-452f-bc3f-5b3ec8db8899"
+        };
+        
+        let auth_url = "https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token";
+            
+        $.ajax({
+            type: "POST",
+            url: auth_url,
+            crossDomain:true,
+            dataType:'JSON',                
+            data: parameter,
+            async: false,       
+            success: function(data){            
+                $("#accesstoken").text(JSON.stringify(data));    
+                aa = data            
+                console.log('aa: ', aa);
+            },
+            error: function (xhr, textStatus, thrownError) {
+                
+            }
+        });          
+    }
       // API key
-      function getAuthorizationHeader() {
-        let AppID = "dc25b47e35d44cf6b44fab824928d5b0";
-        let AppKey = "HOz6BvA7WvTiaSUw_NE_IjdC7a8";
+      /* function getAuthorizationHeader() {
+        let AppID = "lililklk1102-996c6644-cd69-40d3";
+        let AppKey = "7051148b-c24c-452f-bc3f-5b3ec8db8899";
         let GMTString = new Date().toGMTString();
         let ShaObj = new jsSHA("SHA-1", "TEXT");
         ShaObj.setHMACKey(AppKey, "TEXT");
@@ -193,7 +225,7 @@
           HMAC +
           '"';
         return { Authorization: Authorization, "X-Date": GMTString };
-      }
+      } */
 
       const modal = new bootstrap.Modal(
         document.querySelector("#exampleModal")
@@ -393,7 +425,10 @@
 
         try {
           const res = await fetch(url, {
-            headers: getAuthorizationHeader(),
+            headers: {
+              "authorization": "Bearer " + token.access_token,                
+            },
+            async: false,
           });
           data = await res.json();
           if (data.length === 0) {
@@ -452,7 +487,10 @@
 
         try {
           const res = await fetch(url, {
-            headers: getAuthorizationHeader(),
+            headers: {
+              "authorization": "Bearer " + token.access_token,               
+            },
+            async: false,
           });
           data = await res.json();
 
@@ -522,7 +560,10 @@
 
         try {
           const res = await fetch(url, {
-            headers: getAuthorizationHeader(),
+            headers: {
+              "authorization": "Bearer " + token.access_token,               
+            },            
+            async: false,
           });
           data = await res.json();
 
@@ -588,7 +629,7 @@
           '<h3 class="text-center my-5">"查無搜尋結果"</h3>';
       }
 
-      getScenicSpot();
+      /* getScenicSpot(); */
     </script>
   </body>
 </html>
